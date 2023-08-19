@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">LugalCompose</string>
     <string name="show_dialog">Show dialog message</string>
+    <string name="cancel">Cancel</string>
+    <string name="choose_option">Choose an option</string>
+    <string name="take_photo">Take photo</string>
+    <string name="choose_from_gallery">Choose image from gallery</string>
 </resources>

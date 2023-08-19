@@ -19,8 +19,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.cuanto.lugal.ui.ActionButton
+import com.cuanto.lugal.ui.AddButton
 import com.cuanto.lugal.ui.DialogMessage
 import com.cuanto.lugal.ui.OutlineBox
+import com.cuanto.lugal.ui.SupportImageDocumentDialog
 import com.cuanto.lugalcompose.ui.theme.LugalComposeTheme
 
 @Composable
@@ -33,6 +35,7 @@ private fun LugalScreen(
     modifier: Modifier = Modifier,
 ) {
     var showDialog by remember { mutableStateOf(false) }
+    var showImageDocumentDialog by remember { mutableStateOf(false) }
 
     LugalComposeTheme {
         Surface(
@@ -77,6 +80,12 @@ private fun LugalScreen(
                     isDisabled = true,
                     onClick = {}
                 )
+
+                AddButton(
+                    text = stringResource(id = R.string.app_name),
+                    colorIcon = MaterialTheme.colorScheme.primary,
+                    onClick = { showImageDocumentDialog = true }
+                )
             }
             if (showDialog) {
                 DialogMessage(
@@ -84,6 +93,18 @@ private fun LugalScreen(
                     body = "Bienvenido",
                     textButton = "Aceptar",
                     onDismiss = { showDialog = false },
+                )
+            }
+
+            if (showImageDocumentDialog) {
+                SupportImageDocumentDialog(
+                    title = stringResource(id = R.string.choose_option),
+                    firstButtonText = stringResource(id = R.string.take_photo),
+                    secondButtonText = stringResource(id = R.string.choose_from_gallery),
+                    textCancelButton = stringResource(id = R.string.cancel),
+                    onDismissRequest = { showImageDocumentDialog = false },
+                    onRequestDocument = {},
+                    onRequestGallery = {}
                 )
             }
         }

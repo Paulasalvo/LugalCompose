@@ -18,10 +18,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.cuanto.lugal.R
-import com.cuanto.lugal.common.title
 
 @Composable
 fun ActionButton(
@@ -32,7 +30,7 @@ fun ActionButton(
     isDisabled: Boolean = false,
     isCompleted: Boolean = false,
     isInProcess: Boolean = false,
-    onClick: () -> Unit,
+    onClick: () -> Unit
 ) {
     OutlineBox(
         modifier = modifier
@@ -88,7 +86,7 @@ fun ActionButton(
         }
     }
 }
-
+/*
 @Preview(showBackground = true, widthDp = 420)
 @Composable
 fun ActionButtonEnabledPreview() {
@@ -147,3 +145,4 @@ fun ActionButtonDisabledPreview() {
         )
     }
 }
+*/
