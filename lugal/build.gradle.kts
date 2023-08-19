@@ -16,6 +16,7 @@ dependencies {
     implementation(Compose.foundation)
     implementation(Compose.runtime)
     implementation(Compose.material)
+    implementation(Compose.materialIconsExt)
     debugImplementation(Compose.tooling)
 }
 

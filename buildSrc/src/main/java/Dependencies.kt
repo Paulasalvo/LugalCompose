@@ -14,7 +14,8 @@ object Compose {
     const val foundation = "androidx.compose.foundation:foundation:${Versions.compose}"
     const val layout = "androidx.compose.foundation:foundation-layout:${Versions.compose}"
     const val material = "androidx.compose.material3:material3:${Versions.material}"
-    const val materialIconsExt = "androidx.compose.material:material-icons-extended:${Versions.compose}"
+    const val materialIcon = "androidx.compose.material.icons:${Versions.material}"
+    const val materialIconsExt = "androidx.compose.material:material-icons-extended:${Versions.material}"
     const val runtime = "androidx.compose.runtime:runtime:${Versions.compose}"
     const val tooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
 }
