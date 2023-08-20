@@ -22,6 +22,7 @@ import com.cuanto.lugal.ui.ActionButton
 import com.cuanto.lugal.ui.AddButton
 import com.cuanto.lugal.ui.DialogMessage
 import com.cuanto.lugal.ui.OutlineBox
+import com.cuanto.lugal.ui.Spinner
 import com.cuanto.lugal.ui.SupportImageDocumentDialog
 import com.cuanto.lugalcompose.ui.theme.LugalComposeTheme
 
@@ -36,6 +37,7 @@ private fun LugalScreen(
 ) {
     var showDialog by remember { mutableStateOf(false) }
     var showImageDocumentDialog by remember { mutableStateOf(false) }
+    var isExpanded by remember { mutableStateOf(false) }
 
     LugalComposeTheme {
         Surface(
@@ -86,12 +88,27 @@ private fun LugalScreen(
                     colorIcon = MaterialTheme.colorScheme.primary,
                     onClick = { showImageDocumentDialog = true }
                 )
+
+                Spinner(
+                    modifier = Modifier.padding(8.dp),
+                    text = stringResource(id = R.string.t_new),
+                    items = getDummyList(),
+                    showTotal = true,
+                    expanded = isExpanded,
+                    onExpanded = { isExpanded = !isExpanded },
+                    content = { value ->
+                        Text(
+                            modifier = Modifier.padding(8.dp),
+                            text = value
+                        )
+                    }
+                )
             }
             if (showDialog) {
                 DialogMessage(
-                    title = "Hello",
-                    body = "Bienvenido",
-                    textButton = "Aceptar",
+                    title = stringResource(id = R.string.hello),
+                    body = stringResource(id = R.string.welcome),
+                    textButton = stringResource(id = R.string.accept),
                     onDismiss = { showDialog = false },
                 )
             }
@@ -110,6 +127,8 @@ private fun LugalScreen(
         }
     }
 }
+
+private fun getDummyList() = listOf("Test 1", "Test 2", "Test 3")
 
 @Preview()
 @Composable
