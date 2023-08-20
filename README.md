@@ -5,7 +5,7 @@ Lugal Compose is a lightweight and easy-to-use UI component library for Android,
 build.gradle (app)
 ```groovy
 dependecies {
-    implementation("com.github.AlvaroMonserrat:LugalCompose:v.0.0.6-alpha")
+    implementation("com.github.AlvaroMonserrat:LugalCompose:v.0.0.9-alpha")
 }
 ```
 
@@ -17,3 +17,6 @@ repositories {
     maven { url 'https://jitpack.io'}
 }
 ```
+## EXAMPLES
+![ui_demo_a](https://github.com/AlvaroMonserrat/LugalCompose/assets/23504222/4f977542-011c-4eb0-b515-2aaec409ad29)
+![ui_demo_b](https://github.com/AlvaroMonserrat/LugalCompose/assets/23504222/f62fd568-1abd-4a68-9fa1-ea67043c8c3b)
