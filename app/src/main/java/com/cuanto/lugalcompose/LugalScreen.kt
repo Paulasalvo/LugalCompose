@@ -1,5 +1,6 @@
 package com.cuanto.lugalcompose
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -14,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -38,6 +40,8 @@ private fun LugalScreen(
     var showDialog by remember { mutableStateOf(false) }
     var showImageDocumentDialog by remember { mutableStateOf(false) }
     var isExpanded by remember { mutableStateOf(false) }
+
+    val context = LocalContext.current
 
     LugalComposeTheme {
         Surface(
@@ -93,13 +97,15 @@ private fun LugalScreen(
                     modifier = Modifier.padding(8.dp),
                     text = stringResource(id = R.string.t_new),
                     items = getDummyList(),
-                    showTotal = true,
                     expanded = isExpanded,
                     onExpanded = { isExpanded = !isExpanded },
+                    onClick = { value ->
+                        Toast.makeText(context, "Click on: $value", Toast.LENGTH_SHORT).show()
+                              },
                     content = { value ->
                         Text(
-                            modifier = Modifier.padding(8.dp),
-                            text = value
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 16.dp),
+                            text = value.toString()
                         )
                     }
                 )
@@ -128,7 +134,7 @@ private fun LugalScreen(
     }
 }
 
-private fun getDummyList() = listOf("Test 1", "Test 2", "Test 3")
+private fun getDummyList() = listOf(1, 2, 3, 4)
 
 @Preview()
 @Composable
