@@ -26,11 +26,15 @@ import com.cuanto.lugal.ui.DialogMessage
 import com.cuanto.lugal.ui.OutlineBox
 import com.cuanto.lugal.ui.Spinner
 import com.cuanto.lugal.ui.SupportImageDocumentDialog
-import com.cuanto.lugalcompose.ui.theme.LugalComposeTheme
+import com.cuanto.lugal.ui.TemplateScreen
 
 @Composable
 fun LugalScreen() {
-    LugalScreen(modifier = Modifier)
+    TemplateScreen(
+        textHeader = stringResource(id = R.string.app_name)
+    ) {
+        LugalScreen(modifier = Modifier)
+    }
 }
 
 @Composable
@@ -43,7 +47,6 @@ private fun LugalScreen(
 
     val context = LocalContext.current
 
-    LugalComposeTheme {
         Surface(
             modifier = modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background,
@@ -130,7 +133,6 @@ private fun LugalScreen(
                     onRequestGallery = {}
                 )
             }
-        }
     }
 }
 
